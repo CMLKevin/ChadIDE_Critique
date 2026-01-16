@@ -15,11 +15,15 @@
     <meta property="og:title" content="The Anatomy of UX Failure: Chad IDE">
     <meta property="og:description" content="How a Y Combinator-backed 'brainrot IDE' systematically violates every established principle of human-computer interaction.">
     <meta property="og:site_name" content="UX Autopsy">
+    <meta property="og:image" content="https://www.cladlabs.ai/home_page_view.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Anatomy of UX Failure: Chad IDE">
     <meta name="twitter:description" content="A comprehensive critique of the IDE that embeds gambling, social media, and dating apps directly into your development environment.">
+    <meta name="twitter:image" content="https://www.cladlabs.ai/home_page_view.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://chadide-critique.pages.dev/">
@@ -494,6 +498,105 @@
             border-left: 2px solid var(--border-soft);
         }
 
+        /* Screenshot Gallery */
+        .screenshot-figure {
+            margin: var(--space-xl) calc(-1 * var(--space-lg));
+            background: var(--bg-secondary);
+            padding: var(--space-lg);
+            border-top: 3px solid var(--border-harsh);
+            border-bottom: 3px solid var(--border-harsh);
+        }
+
+        .screenshot-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .screenshot-figure figcaption {
+            margin-top: var(--space-md);
+            padding: var(--space-md);
+            background: var(--bg-dark);
+            color: #d0d0d0;
+            border-left: none;
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .screenshot-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Video Embed */
+        .video-embed {
+            margin: var(--space-xl) 0;
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for YouTube Shorts */
+            max-width: 360px;
+            height: 0;
+            overflow: hidden;
+            background: var(--bg-dark);
+            border: 3px solid var(--border-harsh);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-embed-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: var(--space-xl) 0;
+        }
+
+        .video-caption {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: var(--space-md);
+            text-align: center;
+            max-width: 360px;
+        }
+
+        /* Screenshot Grid */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .screenshot-grid figure {
+            margin: 0;
+        }
+
+        .screenshot-grid img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 600px) {
+            .screenshot-figure { margin: var(--space-lg) calc(-1 * var(--space-md)); padding: var(--space-md); }
+            .video-embed { max-width: 100%; }
+        }
+
         /* Comparison Table */
         .comparison-table {
             width: 100%;
@@ -805,6 +908,18 @@
                     The conversation thread itself displays actions like "Inspected folder tree" and "Ran terminal" in expandable sections. Are these clickable? Are they status indicators? The visual treatment offers no distinction between interactive elements and static information.
                 </p>
 
+                <figure class="screenshot-figure">
+                    <img src="https://www.cladlabs.ai/home_page_view.png"
+                         alt="Chad IDE main interface showing the dashboard with coding metrics, file editor, and chat panel"
+                         loading="lazy">
+                    <figcaption>
+                        <span class="screenshot-label">Exhibit A — The "Productive" State</span>
+                        Chad IDE's main interface displays a VS Code-style editor with an AI chat panel. Note the cluttered sidebar with multiple competing controls, the ambiguous "Welcome back, Chad" dashboard metrics, and the lack of clear visual hierarchy between coding tools and distraction features.
+                        <br><br>
+                        <em>Source: cladlabs.ai official website</em>
+                    </figcaption>
+                </figure>
+
                 <h3>Screenshot Analysis: The Brainrot State</h3>
 
                 <p>
@@ -818,6 +933,32 @@
                 <p>
                     This configuration exposes the fundamental contradiction at Chad IDE's core: it claims to solve context-switching problems by institutionalizing context-switching within the interface itself. The solution to distraction is, apparently, structured distraction.
                 </p>
+
+                <figure class="screenshot-figure">
+                    <img src="https://www.cladlabs.ai/ide_image_light.png"
+                         alt="Chad IDE showing integrated social media, gambling, and entertainment features alongside code"
+                         loading="lazy">
+                    <figcaption>
+                        <span class="screenshot-label">Exhibit B — Integrations in Action</span>
+                        The sidebar transforms into a portal for "brainrot" activities: YouTube Shorts, Instagram Reels, TikTok, Stake.us gambling, and Tinder—all accessible without leaving your development environment. The icons along the left edge offer one-click access to each distraction category.
+                        <br><br>
+                        <em>Source: cladlabs.ai official website</em>
+                    </figcaption>
+                </figure>
+
+                <div class="video-embed-wrapper">
+                    <div class="video-embed">
+                        <iframe
+                            src="https://www.youtube.com/embed/5JJU93cFqgs"
+                            title="Chad IDE Official Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-caption">
+                        <strong>Official Demo Video</strong> — Watch the founders demonstrate how Chad IDE "helps manage your context-switching" by embedding gambling and social media directly into the coding workflow.
+                    </p>
+                </div>
             </section>
 
             <section>
