@@ -1,0 +1,4 @@
+# Redirect any path to index (SPA-style, though this is a single page)
+/blog  /  301
+/analysis  /  301
+/chad-ide  /  301
